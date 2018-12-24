@@ -1,0 +1,39 @@
+{\rtf1\ansi\ansicpg936\cocoartf1561\cocoasubrtf600
+{\fonttbl\f0\fnil\fcharset0 Menlo-Bold;}
+{\colortbl;\red255\green255\blue255;\red59\green244\blue36;\red0\green0\blue128;\red242\green242\blue242;
+\red207\green125\blue255;}
+{\*\expandedcolortbl;;\cssrgb\c24589\c94440\c18300;\csgenericrgb\c0\c0\c50196\c79821;\csgray\c95825;
+\cssrgb\c85420\c59134\c100000;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\b\fs28 \cf2 \cb3 \CocoaLigature0 yangyang@yangyang-XPS-8900\cf4 :\cf5 ~/Desktop\cf4 $ mpiicc -qopenmp -O3 fox_floats_timer_caching_omp_fileIO_benchmark.c -o fox_floats_timer_caching_omp_fileIO_benchmark\
+\cf2 yangyang@yangyang-XPS-8900\cf4 :\cf5 ~/Desktop\cf4 $ mpirun -n 4 ./fox_floats_timer_caching_omp_fileIO_benchmark\
+We read the order of the matrices from A.dat is\
+ 64\
+Read A from A.dat\
+Read B from B.dat\
+Write C into the C.dat\
+Write split of local matrix A into local_A.dat\
+Write split of local matrix B into local_B.dat\
+Write split of local matrix C into local_C.dat\
+Parallel Fox Matrix Multiplication Elapsed time:\
+     2.67982482910156250000E-04 seconds\
+\cf2 yangyang@yangyang-XPS-8900\cf4 :\cf5 ~/Desktop\cf4 $ vim serial_matrix_multiplication_benchmark.c \
+\cf2 yangyang@yangyang-XPS-8900\cf4 :\cf5 ~/Desktop\cf4 $ icc -O3 serial_matrix_multiplication_benchmark.c -o serial_matrix_multiplication_benchmark\
+\cf2 yangyang@yangyang-XPS-8900\cf4 :\cf5 ~/Desktop\cf4 $ ./serial_matrix_multiplication_benchmark\
+Generate and write matrix A\
+Generate and write matrix B\
+We read the order of the matrices from A.dat is\
+ 4096\
+We read the order of the matrices from A.dat is\
+ 64\
+Read matrix A\
+Read matrix B\
+Start C = A*B\
+C = A*B finished\
+Serial Matrix Multiplication Elapsed time:\
+     8.08238983154296875000E-05 seconds\
+Write result C = A*B to a file C.dat\
+\cf2 yangyang@yangyang-XPS-8900\cf4 :\cf5 ~/Desktop\cf4 $ \
+}
