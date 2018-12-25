@@ -1,0 +1,11 @@
+Generate and write matrix A
+Generate and write matrix B
+We read the order of the matrices from A.dat is
+ 2048
+Read matrix A
+Read matrix B
+Start C = A*B
+C = A*B finished
+Serial Matrix Multiplication Elapsed time:
+     2.95392107963562011719E+00 seconds
+Write result C = A*B to a file C.dat
