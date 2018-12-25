@@ -1,0 +1,12 @@
+icc: remark #10397: optimization reports are generated in *.optrpt files in the output location
+Generate and write matrix A
+Generate and write matrix B
+We read the order of the matrices from A.dat is
+ 128
+Read matrix A
+Read matrix B
+Start C = A*B
+C = A*B finished
+Serial Matrix Multiplication Elapsed time:
+     8.70227813720703125000E-04 seconds
+Write result C = A*B to a file C.dat

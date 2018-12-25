@@ -1,0 +1,12 @@
+icc: remark #10397: optimization reports are generated in *.optrpt files in the output location
+srun: Warning: can't honor --ntasks-per-node set to 2 which doesn't match the requested tasks 8 with the number of requested nodes 8. Ignoring --ntasks-per-node.
+We read the order of the matrices from A.dat is
+ 512
+Read A from A.dat
+Read B from B.dat
+Write C into the C.dat
+Write split of local matrix A into local_A.dat
+Write split of local matrix B into local_B.dat
+Write split of local matrix C into local_C.dat
+Parallel Fox Matrix Multiplication Elapsed time:
+     3.31640243530273437500E-02 seconds

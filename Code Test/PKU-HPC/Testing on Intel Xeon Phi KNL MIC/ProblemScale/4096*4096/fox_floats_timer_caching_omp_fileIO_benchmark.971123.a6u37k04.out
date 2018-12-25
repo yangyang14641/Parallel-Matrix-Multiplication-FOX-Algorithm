@@ -1,0 +1,11 @@
+icc: remark #10397: optimization reports are generated in *.optrpt files in the output location
+We read the order of the matrices from A.dat is
+ 4096
+Read A from A.dat
+Read B from B.dat
+Write C into the C.dat
+Write split of local matrix A into local_A.dat
+Write split of local matrix B into local_B.dat
+Write split of local matrix C into local_C.dat
+Parallel Fox Matrix Multiplication Elapsed time:
+     1.50321919918060302734E+01 seconds

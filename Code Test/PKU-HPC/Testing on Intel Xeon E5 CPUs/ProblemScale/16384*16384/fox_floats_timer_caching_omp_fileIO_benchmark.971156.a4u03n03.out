@@ -1,0 +1,4 @@
+icc: remark #10397: optimization reports are generated in *.optrpt files in the output location
+/var/spool/slurmd/job971156/slurm_script: line 19: 16484 Bus error               (core dumped) ./serial_matrix_multiplication_benchmark.o
+slurmstepd: error: Step 971156.4294967294 hit memory limit at least once during execution. This may or may not result in some failure.
+slurmstepd: error: Job 971156 hit memory limit at least once during execution. This may or may not result in some failure.
