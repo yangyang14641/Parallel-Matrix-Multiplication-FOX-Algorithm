@@ -1,0 +1,15 @@
+icc: remark #10397: optimization reports are generated in *.optrpt files in the output location
+We read the order of the matrices from A.dat is
+ 8192
+Read A from A.dat
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   PID 4394 RUNNING AT a4u03n10
+=   EXIT CODE: 11
+=   CLEANING UP REMAINING PROCESSES
+=   YOU CAN IGNORE THE BELOW CLEANUP MESSAGES
+===================================================================================
+   Intel(R) MPI Library troubleshooting guide:
+      https://software.intel.com/node/561764
+===================================================================================

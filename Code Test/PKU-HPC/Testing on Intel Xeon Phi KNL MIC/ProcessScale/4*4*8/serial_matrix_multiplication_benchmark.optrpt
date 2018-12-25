@@ -1,0 +1,185 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+Intel(R) C Intel(R) 64 Compiler for applications running on Intel(R) 64, Version 18.0.1.163 Build 20171018
+
+Compiler options: -O3 -xMIC-AVX512 -qopt-report-phase=vec -qopt-report=3 -o serial_matrix_multiplication_benchmark.o
+
+Begin optimization report for: main(int, char **)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at serial_matrix_multiplication_benchmark.c(67,5)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between call:fprintf(FILE *__restrict__, const char *__restrict__, ...) (73:13) and call:fprintf(FILE *__restrict__, const char *__restrict__, ...) (76:9)
+
+   LOOP BEGIN at serial_matrix_multiplication_benchmark.c(68,9)
+      remark #15527: loop was not vectorized: function call to fprintf(FILE *__restrict__, const char *__restrict__, ...) cannot be vectorized   [ serial_matrix_multiplication_benchmark.c(73,13) ]
+   LOOP END
+
+   LOOP BEGIN at serial_matrix_multiplication_benchmark.c(68,9)
+      remark #15527: loop was not vectorized: function call to fprintf(FILE *__restrict__, const char *__restrict__, ...) cannot be vectorized   [ serial_matrix_multiplication_benchmark.c(73,13) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at serial_matrix_multiplication_benchmark.c(82,5)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between call:fprintf(FILE *__restrict__, const char *__restrict__, ...) (84:13) and call:fprintf(FILE *__restrict__, const char *__restrict__, ...) (86:9)
+
+   LOOP BEGIN at serial_matrix_multiplication_benchmark.c(83,9)
+      remark #15527: loop was not vectorized: function call to fprintf(FILE *__restrict__, const char *__restrict__, ...) cannot be vectorized   [ serial_matrix_multiplication_benchmark.c(84,13) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at serial_matrix_multiplication_benchmark.c(94,5)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form from OpenMP specification
+LOOP END
+
+LOOP BEGIN at serial_matrix_multiplication_benchmark.c(110,5)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between call:fscanf(FILE *__restrict__, const char *__restrict__, ...) (112:13) and call:fscanf(FILE *__restrict__, const char *__restrict__, ...) (112:13)
+
+   LOOP BEGIN at serial_matrix_multiplication_benchmark.c(111,9)
+      remark #15527: loop was not vectorized: function call to fscanf(FILE *__restrict__, const char *__restrict__, ...) cannot be vectorized   [ serial_matrix_multiplication_benchmark.c(112,13) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at serial_matrix_multiplication_benchmark.c(118,5)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between call:fscanf(FILE *__restrict__, const char *__restrict__, ...) (120:13) and call:fscanf(FILE *__restrict__, const char *__restrict__, ...) (120:13)
+
+   LOOP BEGIN at serial_matrix_multiplication_benchmark.c(119,9)
+      remark #15527: loop was not vectorized: function call to fscanf(FILE *__restrict__, const char *__restrict__, ...) cannot be vectorized   [ serial_matrix_multiplication_benchmark.c(120,13) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at serial_matrix_multiplication_benchmark.c(128,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at serial_matrix_multiplication_benchmark.c(129,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at serial_matrix_multiplication_benchmark.c(129,9)
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15451: unmasked unaligned unit stride stores: 1 
+         remark #15475: --- begin vector cost summary ---
+         remark #15476: scalar cost: 4 
+         remark #15477: vector cost: 0.620 
+         remark #15478: estimated potential speedup: 2.660 
+         remark #15488: --- end vector cost summary ---
+      LOOP END
+
+      LOOP BEGIN at serial_matrix_multiplication_benchmark.c(129,9)
+      <Remainder loop for vectorization>
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at serial_matrix_multiplication_benchmark.c(134,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at serial_matrix_multiplication_benchmark.c(136,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at serial_matrix_multiplication_benchmark.c(135,9)
+      <Peeled loop for vectorization>
+         remark #15301: PEEL LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at serial_matrix_multiplication_benchmark.c(135,9)
+         remark #15301: PERMUTED LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15450: unmasked unaligned unit stride loads: 8 
+         remark #15451: unmasked unaligned unit stride stores: 16 
+         remark #15475: --- begin vector cost summary ---
+         remark #15476: scalar cost: 168 
+         remark #15477: vector cost: 15.930 
+         remark #15478: estimated potential speedup: 8.820 
+         remark #15488: --- end vector cost summary ---
+      LOOP END
+
+      LOOP BEGIN at serial_matrix_multiplication_benchmark.c(135,9)
+      <Remainder loop for vectorization>
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at serial_matrix_multiplication_benchmark.c(135,9)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at serial_matrix_multiplication_benchmark.c(136,13)
+   <Remainder>
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at serial_matrix_multiplication_benchmark.c(135,9)
+      <Peeled loop for vectorization>
+         remark #15301: PEEL LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at serial_matrix_multiplication_benchmark.c(135,9)
+         remark #15301: PERMUTED LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15450: unmasked unaligned unit stride loads: 5 
+         remark #15451: unmasked unaligned unit stride stores: 4 
+         remark #15475: --- begin vector cost summary ---
+         remark #15476: scalar cost: 42 
+         remark #15477: vector cost: 4.250 
+         remark #15478: estimated potential speedup: 8.190 
+         remark #15488: --- end vector cost summary ---
+      LOOP END
+
+      LOOP BEGIN at serial_matrix_multiplication_benchmark.c(135,9)
+      <Remainder loop for vectorization>
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at serial_matrix_multiplication_benchmark.c(135,9)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at serial_matrix_multiplication_benchmark.c(134,5)
+<Remainder>
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at serial_matrix_multiplication_benchmark.c(136,13)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at serial_matrix_multiplication_benchmark.c(135,9)
+      <Peeled loop for vectorization>
+         remark #15301: PEEL LOOP WAS VECTORIZED
+      LOOP END
+
+      LOOP BEGIN at serial_matrix_multiplication_benchmark.c(135,9)
+         remark #15301: PERMUTED LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15450: unmasked unaligned unit stride loads: 2 
+         remark #15451: unmasked unaligned unit stride stores: 1 
+         remark #15475: --- begin vector cost summary ---
+         remark #15476: scalar cost: 11 
+         remark #15477: vector cost: 1.000 
+         remark #15478: estimated potential speedup: 9.880 
+         remark #15488: --- end vector cost summary ---
+      LOOP END
+
+      LOOP BEGIN at serial_matrix_multiplication_benchmark.c(135,9)
+      <Remainder loop for vectorization>
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at serial_matrix_multiplication_benchmark.c(149,5)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between call:fprintf(FILE *__restrict__, const char *__restrict__, ...) (151:13) and call:fprintf(FILE *__restrict__, const char *__restrict__, ...) (153:9)
+
+   LOOP BEGIN at serial_matrix_multiplication_benchmark.c(150,9)
+      remark #15527: loop was not vectorized: function call to fprintf(FILE *__restrict__, const char *__restrict__, ...) cannot be vectorized   [ serial_matrix_multiplication_benchmark.c(151,13) ]
+   LOOP END
+LOOP END
+===========================================================================
