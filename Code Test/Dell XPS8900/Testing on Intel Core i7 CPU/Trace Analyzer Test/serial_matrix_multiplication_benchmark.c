@@ -18,7 +18,7 @@
 
 
 // define problem scale, matrix row/col size 
-#define PROBLEM_SCALE 4096
+#define PROBLEM_SCALE 2048
 
 // define float precision, 4 byte single-precision float or 8 byte double-precision float
 #define FLOAT double

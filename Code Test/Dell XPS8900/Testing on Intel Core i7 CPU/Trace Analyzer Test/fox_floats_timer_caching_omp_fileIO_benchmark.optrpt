@@ -1,0 +1,603 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+Intel(R) C Intel(R) 64 Compiler for applications running on Intel(R) 64, Version 18.0.1.163 Build 20171018
+
+Compiler options: -I/opt/intel/compilers_and_libraries_2018.1.163/linux/mpi/intel64/include -O3 -xCORE-AVX2 -qopenmp -qopt-report-phase=vec -qopt-report=3 -g -debug all -o fox_floats_timer_caching_omp_fileIO_benchmark -L/opt/intel/compilers_and_libraries_2018.1.163/linux/mpi/intel64/lib/debug_mt -L/opt/intel/compilers_and_libraries_2018.1.163/linux/mpi/intel64/lib -Xlinker --enable-new-dtags -Xlinker -rpath -Xlinker /opt/intel/compilers_and_libraries_2018.1.163/linux/mpi/intel64/lib/debug_mt -Xlinker -rpath -Xlinker /opt/intel/compilers_and_libraries_2018.1.163/linux/mpi/intel64/lib -Xlinker -rpath -Xlinker /opt/intel/mpi-rt/2017.0.0/intel64/lib/debug_mt -Xlinker -rpath -Xlinker /opt/intel/mpi-rt/2017.0.0/intel64/lib -L/opt/intel/itac/2018.1.017/intel64/lib -lVT -ldwarf -lelf -lvtunwind -lm -lpthread -lmpifort -lmpi -lmpigi -ldl -lrt -lpthread
+
+Begin optimization report for: main(int, char **)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(153,5)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between call:fprintf(FILE *__restrict__, const char *__restrict__, ...) (159:13) and call:fprintf(FILE *__restrict__, const char *__restrict__, ...) (162:9)
+
+   LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(154,9)
+      remark #15527: loop was not vectorized: function call to fprintf(FILE *__restrict__, const char *__restrict__, ...) cannot be vectorized   [ fox_floats_timer_caching_omp_fileIO_benchmark.c(159,13) ]
+   LOOP END
+
+   LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(154,9)
+      remark #15527: loop was not vectorized: function call to fprintf(FILE *__restrict__, const char *__restrict__, ...) cannot be vectorized   [ fox_floats_timer_caching_omp_fileIO_benchmark.c(159,13) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(167,5)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between call:fprintf(FILE *__restrict__, const char *__restrict__, ...) (169:13) and call:fprintf(FILE *__restrict__, const char *__restrict__, ...) (171:9)
+
+   LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(168,9)
+      remark #15527: loop was not vectorized: function call to fprintf(FILE *__restrict__, const char *__restrict__, ...) cannot be vectorized   [ fox_floats_timer_caching_omp_fileIO_benchmark.c(169,13) ]
+   LOOP END
+LOOP END
+
+LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(188,9)
+   remark #15521: loop was not vectorized: loop control variable was not identified. Explicitly compute the iteration count before executing the loop or try using canonical loop form from OpenMP specification
+LOOP END
+
+LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(394,9) inlined into fox_floats_timer_caching_omp_fileIO_benchmark.c(206,5)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between coords[0] (396:13) and local_A->entries[mat_row*local_A->n_bar] (402:25)
+
+   LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(397,13) inlined into fox_floats_timer_caching_omp_fileIO_benchmark.c(206,5)
+      remark #15523: loop was not vectorized: loop control variable grid_col was found, but loop iteration count cannot be computed before executing the loop
+
+      LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(401,21) inlined into fox_floats_timer_caching_omp_fileIO_benchmark.c(206,5)
+         remark #15523: loop was not vectorized: loop control variable mat_col was found, but loop iteration count cannot be computed before executing the loop
+      LOOP END
+
+      LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(408,21) inlined into fox_floats_timer_caching_omp_fileIO_benchmark.c(206,5)
+         remark #15523: loop was not vectorized: loop control variable mat_col was found, but loop iteration count cannot be computed before executing the loop
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(419,9) inlined into fox_floats_timer_caching_omp_fileIO_benchmark.c(206,5)
+   remark #15523: loop was not vectorized: loop control variable mat_row was found, but loop iteration count cannot be computed before executing the loop
+LOOP END
+
+LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(454,9) inlined into fox_floats_timer_caching_omp_fileIO_benchmark.c(212,5)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed FLOW dependence between coords[0] (456:13) and local_B->entries[mat_col*local_B->n_bar] (462:25)
+
+   LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(457,13) inlined into fox_floats_timer_caching_omp_fileIO_benchmark.c(212,5)
+      remark #15523: loop was not vectorized: loop control variable grid_col was found, but loop iteration count cannot be computed before executing the loop
+
+      LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(461,21) inlined into fox_floats_timer_caching_omp_fileIO_benchmark.c(212,5)
+         remark #15523: loop was not vectorized: loop control variable mat_col was found, but loop iteration count cannot be computed before executing the loop
+      LOOP END
+
+      LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(470,21) inlined into fox_floats_timer_caching_omp_fileIO_benchmark.c(212,5)
+         remark #15523: loop was not vectorized: loop control variable mat_col was found, but loop iteration count cannot be computed before executing the loop
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(482,9) inlined into fox_floats_timer_caching_omp_fileIO_benchmark.c(212,5)
+   remark #15523: loop was not vectorized: loop control variable mat_col was found, but loop iteration count cannot be computed before executing the loop
+
+   LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(485,13) inlined into fox_floats_timer_caching_omp_fileIO_benchmark.c(212,5)
+      remark #15523: loop was not vectorized: loop control variable mat_row was found, but loop iteration count cannot be computed before executing the loop
+   LOOP END
+LOOP END
+
+LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(681,9) inlined into fox_floats_timer_caching_omp_fileIO_benchmark.c(228,5)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between coords[0] (683:13) and source (686:17)
+
+   LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(684,13) inlined into fox_floats_timer_caching_omp_fileIO_benchmark.c(228,5)
+      remark #15523: loop was not vectorized: loop control variable grid_col was found, but loop iteration count cannot be computed before executing the loop
+
+      LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(688,21) inlined into fox_floats_timer_caching_omp_fileIO_benchmark.c(228,5)
+         remark #15523: loop was not vectorized: loop control variable mat_col was found, but loop iteration count cannot be computed before executing the loop
+      LOOP END
+
+      LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(694,21) inlined into fox_floats_timer_caching_omp_fileIO_benchmark.c(228,5)
+         remark #15523: loop was not vectorized: loop control variable mat_col was found, but loop iteration count cannot be computed before executing the loop
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(704,9) inlined into fox_floats_timer_caching_omp_fileIO_benchmark.c(228,5)
+   remark #15523: loop was not vectorized: loop control variable mat_row was found, but loop iteration count cannot be computed before executing the loop
+LOOP END
+
+LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(1013,9) inlined into fox_floats_timer_caching_omp_fileIO_benchmark.c(232,5)
+   remark #15523: loop was not vectorized: loop control variable i was found, but loop iteration count cannot be computed before executing the loop
+
+   LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(1014,13) inlined into fox_floats_timer_caching_omp_fileIO_benchmark.c(232,5)
+      remark #15523: loop was not vectorized: loop control variable j was found, but loop iteration count cannot be computed before executing the loop
+   LOOP END
+LOOP END
+
+LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(1018,9) inlined into fox_floats_timer_caching_omp_fileIO_benchmark.c(232,5)
+   remark #15523: loop was not vectorized: loop control variable source was found, but loop iteration count cannot be computed before executing the loop
+
+   LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(1024,13) inlined into fox_floats_timer_caching_omp_fileIO_benchmark.c(232,5)
+      remark #15523: loop was not vectorized: loop control variable i was found, but loop iteration count cannot be computed before executing the loop
+
+      LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(1025,17) inlined into fox_floats_timer_caching_omp_fileIO_benchmark.c(232,5)
+         remark #15523: loop was not vectorized: loop control variable j was found, but loop iteration count cannot be computed before executing the loop
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(1064,9) inlined into fox_floats_timer_caching_omp_fileIO_benchmark.c(238,5)
+   remark #15523: loop was not vectorized: loop control variable i was found, but loop iteration count cannot be computed before executing the loop
+
+   LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(1065,13) inlined into fox_floats_timer_caching_omp_fileIO_benchmark.c(238,5)
+      remark #15523: loop was not vectorized: loop control variable j was found, but loop iteration count cannot be computed before executing the loop
+   LOOP END
+LOOP END
+
+LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(1069,9) inlined into fox_floats_timer_caching_omp_fileIO_benchmark.c(238,5)
+   remark #15523: loop was not vectorized: loop control variable source was found, but loop iteration count cannot be computed before executing the loop
+
+   LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(1075,13) inlined into fox_floats_timer_caching_omp_fileIO_benchmark.c(238,5)
+      remark #15523: loop was not vectorized: loop control variable i was found, but loop iteration count cannot be computed before executing the loop
+
+      LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(1076,17) inlined into fox_floats_timer_caching_omp_fileIO_benchmark.c(238,5)
+         remark #15523: loop was not vectorized: loop control variable j was found, but loop iteration count cannot be computed before executing the loop
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(1114,9) inlined into fox_floats_timer_caching_omp_fileIO_benchmark.c(244,5)
+   remark #15523: loop was not vectorized: loop control variable i was found, but loop iteration count cannot be computed before executing the loop
+
+   LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(1115,13) inlined into fox_floats_timer_caching_omp_fileIO_benchmark.c(244,5)
+      remark #15523: loop was not vectorized: loop control variable j was found, but loop iteration count cannot be computed before executing the loop
+   LOOP END
+LOOP END
+
+LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(1119,9) inlined into fox_floats_timer_caching_omp_fileIO_benchmark.c(244,5)
+   remark #15523: loop was not vectorized: loop control variable source was found, but loop iteration count cannot be computed before executing the loop
+
+   LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(1125,13) inlined into fox_floats_timer_caching_omp_fileIO_benchmark.c(244,5)
+      remark #15523: loop was not vectorized: loop control variable i was found, but loop iteration count cannot be computed before executing the loop
+
+      LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(1126,17) inlined into fox_floats_timer_caching_omp_fileIO_benchmark.c(244,5)
+         remark #15523: loop was not vectorized: loop control variable j was found, but loop iteration count cannot be computed before executing the loop
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: Fox(int, GRID_INFO_T *, LOCAL_MATRIX_T *, LOCAL_MATRIX_T *, LOCAL_MATRIX_T *)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(721,5) inlined into fox_floats_timer_caching_omp_fileIO_benchmark.c(323,5)
+   remark #15523: loop was not vectorized: loop control variable i was found, but loop iteration count cannot be computed before executing the loop
+
+   LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(722,9) inlined into fox_floats_timer_caching_omp_fileIO_benchmark.c(323,5)
+      remark #15523: loop was not vectorized: loop control variable j was found, but loop iteration count cannot be computed before executing the loop
+   LOOP END
+LOOP END
+
+LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(332,5)
+   remark #15523: loop was not vectorized: loop control variable stage was found, but loop iteration count cannot be computed before executing the loop
+LOOP END
+
+LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(837,5) inlined into fox_floats_timer_caching_omp_fileIO_benchmark.c(342,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between local_C (841:17) and local_C (841:17)
+
+   LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(839,9) inlined into fox_floats_timer_caching_omp_fileIO_benchmark.c(342,13)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between local_C (841:17) and local_C (841:17)
+
+      LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(840,13) inlined into fox_floats_timer_caching_omp_fileIO_benchmark.c(342,13)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed FLOW dependence between local_C (841:17) and local_C (841:17)
+      LOOP END
+
+      LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(840,13) inlined into fox_floats_timer_caching_omp_fileIO_benchmark.c(342,13)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(837,5) inlined into fox_floats_timer_caching_omp_fileIO_benchmark.c(337,13)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between local_C (841:17) and local_C (841:17)
+
+   LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(839,9) inlined into fox_floats_timer_caching_omp_fileIO_benchmark.c(337,13)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between local_C (841:17) and local_C (841:17)
+
+      LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(840,13) inlined into fox_floats_timer_caching_omp_fileIO_benchmark.c(337,13)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed FLOW dependence between local_C (841:17) and local_C (841:17)
+      LOOP END
+
+      LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(840,13) inlined into fox_floats_timer_caching_omp_fileIO_benchmark.c(337,13)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: Read_matrix_A(char *, LOCAL_MATRIX_T *, GRID_INFO_T *, int)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(394,9)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between coords[0] (396:13) and dest (399:17)
+
+   LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(397,13)
+      remark #15523: loop was not vectorized: loop control variable grid_col was found, but loop iteration count cannot be computed before executing the loop
+
+      LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(401,21)
+         remark #15523: loop was not vectorized: loop control variable mat_col was found, but loop iteration count cannot be computed before executing the loop
+      LOOP END
+
+      LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(408,21)
+         remark #15523: loop was not vectorized: loop control variable mat_col was found, but loop iteration count cannot be computed before executing the loop
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(419,9)
+   remark #15523: loop was not vectorized: loop control variable mat_row was found, but loop iteration count cannot be computed before executing the loop
+LOOP END
+===========================================================================
+
+Begin optimization report for: Read_matrix_B(char *, LOCAL_MATRIX_T *, GRID_INFO_T *, int)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(454,9)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between coords[0] (456:13) and dest (459:17)
+
+   LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(457,13)
+      remark #15523: loop was not vectorized: loop control variable grid_col was found, but loop iteration count cannot be computed before executing the loop
+
+      LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(461,21)
+         remark #15523: loop was not vectorized: loop control variable mat_col was found, but loop iteration count cannot be computed before executing the loop
+      LOOP END
+
+      LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(470,21)
+         remark #15523: loop was not vectorized: loop control variable mat_col was found, but loop iteration count cannot be computed before executing the loop
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(482,9)
+   remark #15523: loop was not vectorized: loop control variable mat_col was found, but loop iteration count cannot be computed before executing the loop
+
+   LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(485,13)
+      remark #15523: loop was not vectorized: loop control variable mat_row was found, but loop iteration count cannot be computed before executing the loop
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: Print_matrix_A(char *, LOCAL_MATRIX_T *, GRID_INFO_T *, int)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(520,9)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between coords[0] (522:13) and source (525:17)
+
+   LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(523,13)
+      remark #15523: loop was not vectorized: loop control variable grid_col was found, but loop iteration count cannot be computed before executing the loop
+
+      LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(527,21)
+         remark #15523: loop was not vectorized: loop control variable mat_col was found, but loop iteration count cannot be computed before executing the loop
+      LOOP END
+
+      LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(532,21)
+         remark #15523: loop was not vectorized: loop control variable mat_col was found, but loop iteration count cannot be computed before executing the loop
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(540,9)
+   remark #15523: loop was not vectorized: loop control variable mat_row was found, but loop iteration count cannot be computed before executing the loop
+LOOP END
+===========================================================================
+
+Begin optimization report for: Print_matrix_B(char *, LOCAL_MATRIX_T *, GRID_INFO_T *, int)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(570,9)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between coords[0] (572:13) and source (575:17)
+
+   LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(573,13)
+      remark #15523: loop was not vectorized: loop control variable grid_col was found, but loop iteration count cannot be computed before executing the loop
+
+      LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(577,21)
+         remark #15523: loop was not vectorized: loop control variable mat_col was found, but loop iteration count cannot be computed before executing the loop
+      LOOP END
+
+      LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(583,21)
+         remark #15523: loop was not vectorized: loop control variable mat_col was found, but loop iteration count cannot be computed before executing the loop
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(592,9)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(593,13)
+   <Peeled loop for vectorization>
+   LOOP END
+
+   LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(593,13)
+      remark #15300: LOOP WAS VECTORIZED
+      remark #15442: entire loop may be executed in remainder
+      remark #15451: unmasked unaligned unit stride stores: 1 
+      remark #15452: unmasked strided loads: 1 
+      remark #15475: --- begin vector cost summary ---
+      remark #15476: scalar cost: 8 
+      remark #15477: vector cost: 6.500 
+      remark #15478: estimated potential speedup: 1.220 
+      remark #15488: --- end vector cost summary ---
+   LOOP END
+
+   LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(593,13)
+   <Remainder loop for vectorization>
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: Print_matrix_C(char *, LOCAL_MATRIX_T *, GRID_INFO_T *, int)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(628,9)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between coords[0] (630:13) and source (633:17)
+
+   LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(631,13)
+      remark #15523: loop was not vectorized: loop control variable grid_col was found, but loop iteration count cannot be computed before executing the loop
+
+      LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(635,21)
+         remark #15523: loop was not vectorized: loop control variable mat_col was found, but loop iteration count cannot be computed before executing the loop
+      LOOP END
+
+      LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(640,21)
+         remark #15523: loop was not vectorized: loop control variable mat_col was found, but loop iteration count cannot be computed before executing the loop
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(648,9)
+   remark #15523: loop was not vectorized: loop control variable mat_row was found, but loop iteration count cannot be computed before executing the loop
+LOOP END
+===========================================================================
+
+Begin optimization report for: Write_matrix_C(char *, LOCAL_MATRIX_T *, GRID_INFO_T *, int)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(681,9)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between coords[0] (683:13) and source (686:17)
+
+   LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(684,13)
+      remark #15523: loop was not vectorized: loop control variable grid_col was found, but loop iteration count cannot be computed before executing the loop
+
+      LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(688,21)
+         remark #15523: loop was not vectorized: loop control variable mat_col was found, but loop iteration count cannot be computed before executing the loop
+      LOOP END
+
+      LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(694,21)
+         remark #15523: loop was not vectorized: loop control variable mat_col was found, but loop iteration count cannot be computed before executing the loop
+      LOOP END
+   LOOP END
+LOOP END
+
+LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(704,9)
+   remark #15523: loop was not vectorized: loop control variable mat_row was found, but loop iteration count cannot be computed before executing the loop
+LOOP END
+===========================================================================
+
+Begin optimization report for: Set_to_zero(LOCAL_MATRIX_T *)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(721,5)
+   remark #15523: loop was not vectorized: loop control variable i was found, but loop iteration count cannot be computed before executing the loop
+
+   LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(722,9)
+      remark #15523: loop was not vectorized: loop control variable j was found, but loop iteration count cannot be computed before executing the loop
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: Local_matrix_multiply(LOCAL_MATRIX_T *, LOCAL_MATRIX_T *, LOCAL_MATRIX_T *)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(837,5)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between local_C->entries[local_C->n_bar*i+j] (841:17) and local_C->entries[local_C->n_bar*i+j] (841:17)
+
+   LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(839,9)
+      remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+      remark #15346: vector dependence: assumed OUTPUT dependence between local_C->entries[local_C->n_bar*i+j] (841:17) and local_C->entries[local_C->n_bar*i+j] (841:17)
+
+      LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(840,13)
+         remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+         remark #15346: vector dependence: assumed FLOW dependence between local_C->entries[local_C->n_bar*i+j] (841:17) and local_C->entries[local_C->n_bar*i+j] (841:17)
+      LOOP END
+
+      LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(840,13)
+      <Remainder>
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: Print_local_matrices_A(char *, LOCAL_MATRIX_T *, GRID_INFO_T *)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(871,9)
+   remark #15523: loop was not vectorized: loop control variable i was found, but loop iteration count cannot be computed before executing the loop
+
+   LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(872,13)
+      remark #15523: loop was not vectorized: loop control variable j was found, but loop iteration count cannot be computed before executing the loop
+   LOOP END
+LOOP END
+
+LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(876,9)
+   remark #15523: loop was not vectorized: loop control variable source was found, but loop iteration count cannot be computed before executing the loop
+
+   LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(882,13)
+      remark #15523: loop was not vectorized: loop control variable i was found, but loop iteration count cannot be computed before executing the loop
+
+      LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(883,17)
+         remark #15523: loop was not vectorized: loop control variable j was found, but loop iteration count cannot be computed before executing the loop
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: Print_local_matrices_B(char *, LOCAL_MATRIX_T *, GRID_INFO_T *)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(918,9)
+   remark #15523: loop was not vectorized: loop control variable i was found, but loop iteration count cannot be computed before executing the loop
+
+   LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(919,13)
+      remark #15523: loop was not vectorized: loop control variable j was found, but loop iteration count cannot be computed before executing the loop
+   LOOP END
+LOOP END
+
+LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(923,9)
+   remark #15523: loop was not vectorized: loop control variable source was found, but loop iteration count cannot be computed before executing the loop
+
+   LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(929,13)
+      remark #15523: loop was not vectorized: loop control variable i was found, but loop iteration count cannot be computed before executing the loop
+
+      LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(930,17)
+         remark #15523: loop was not vectorized: loop control variable j was found, but loop iteration count cannot be computed before executing the loop
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: Print_local_matrices_C(char *, LOCAL_MATRIX_T *, GRID_INFO_T *)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(964,9)
+   remark #15523: loop was not vectorized: loop control variable i was found, but loop iteration count cannot be computed before executing the loop
+
+   LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(965,13)
+      remark #15523: loop was not vectorized: loop control variable j was found, but loop iteration count cannot be computed before executing the loop
+   LOOP END
+LOOP END
+
+LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(969,9)
+   remark #15523: loop was not vectorized: loop control variable source was found, but loop iteration count cannot be computed before executing the loop
+
+   LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(975,13)
+      remark #15523: loop was not vectorized: loop control variable i was found, but loop iteration count cannot be computed before executing the loop
+
+      LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(976,17)
+         remark #15523: loop was not vectorized: loop control variable j was found, but loop iteration count cannot be computed before executing the loop
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: Write_local_matrices_A(char *, LOCAL_MATRIX_T *, GRID_INFO_T *)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(1013,9)
+   remark #15523: loop was not vectorized: loop control variable i was found, but loop iteration count cannot be computed before executing the loop
+
+   LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(1014,13)
+      remark #15523: loop was not vectorized: loop control variable j was found, but loop iteration count cannot be computed before executing the loop
+   LOOP END
+LOOP END
+
+LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(1018,9)
+   remark #15523: loop was not vectorized: loop control variable source was found, but loop iteration count cannot be computed before executing the loop
+
+   LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(1024,13)
+      remark #15523: loop was not vectorized: loop control variable i was found, but loop iteration count cannot be computed before executing the loop
+
+      LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(1025,17)
+         remark #15523: loop was not vectorized: loop control variable j was found, but loop iteration count cannot be computed before executing the loop
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: Write_local_matrices_B(char *, LOCAL_MATRIX_T *, GRID_INFO_T *)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(1064,9)
+   remark #15523: loop was not vectorized: loop control variable i was found, but loop iteration count cannot be computed before executing the loop
+
+   LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(1065,13)
+      remark #15523: loop was not vectorized: loop control variable j was found, but loop iteration count cannot be computed before executing the loop
+   LOOP END
+LOOP END
+
+LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(1069,9)
+   remark #15523: loop was not vectorized: loop control variable source was found, but loop iteration count cannot be computed before executing the loop
+
+   LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(1075,13)
+      remark #15523: loop was not vectorized: loop control variable i was found, but loop iteration count cannot be computed before executing the loop
+
+      LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(1076,17)
+         remark #15523: loop was not vectorized: loop control variable j was found, but loop iteration count cannot be computed before executing the loop
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================
+
+Begin optimization report for: Write_local_matrices_C(char *, LOCAL_MATRIX_T *, GRID_INFO_T *)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(1114,9)
+   remark #15523: loop was not vectorized: loop control variable i was found, but loop iteration count cannot be computed before executing the loop
+
+   LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(1115,13)
+      remark #15523: loop was not vectorized: loop control variable j was found, but loop iteration count cannot be computed before executing the loop
+   LOOP END
+LOOP END
+
+LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(1119,9)
+   remark #15523: loop was not vectorized: loop control variable source was found, but loop iteration count cannot be computed before executing the loop
+
+   LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(1125,13)
+      remark #15523: loop was not vectorized: loop control variable i was found, but loop iteration count cannot be computed before executing the loop
+
+      LOOP BEGIN at fox_floats_timer_caching_omp_fileIO_benchmark.c(1126,17)
+         remark #15523: loop was not vectorized: loop control variable j was found, but loop iteration count cannot be computed before executing the loop
+      LOOP END
+   LOOP END
+LOOP END
+===========================================================================

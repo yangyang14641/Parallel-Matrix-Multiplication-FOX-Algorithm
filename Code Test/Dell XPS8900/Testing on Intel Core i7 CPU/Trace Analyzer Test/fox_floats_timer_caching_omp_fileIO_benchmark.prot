@@ -1,0 +1,147 @@
+# LOGFILE-NAME was not set explicitly.
+LOGFILE-NAME "fox_floats_timer_caching_omp_fileIO_benchmark.stf"
+# PROGNAME was not set explicitly.
+PROGNAME "./fox_floats_timer_caching_omp_fileIO_benchmark"
+# LOGFILE-FORMAT was not set explicitly.
+LOGFILE-FORMAT "STF"
+# EXTENDED-VTF was not set explicitly.
+EXTENDED-VTF OFF
+# PROTOFILE-NAME was not set explicitly.
+PROTOFILE-NAME "fox_floats_timer_caching_omp_fileIO_benchmark.prot"
+# LOGFILE-PREFIX was not set explicitly.
+LOGFILE-PREFIX "/home/yangyang/GitRepLocal/GitRepLocalPrivate/Parallel-Matrix-Multiplication-FOX-Algorithm/Code Test/Dell XPS8900/Testing on Intel Core i7 CPU/TraceAnalyzer"
+# CURRENT-DIR was not set explicitly.
+CURRENT-DIR "/home/yangyang/GitRepLocal/GitRepLocalPrivate/Parallel-Matrix-Multiplication-FOX-Algorithm/Code Test/Dell XPS8900/Testing on Intel Core i7 CPU/TraceAnalyzer"
+# VERBOSE was not set explicitly.
+VERBOSE 1
+# LOGFILE-RANK was not set explicitly.
+LOGFILE-RANK 0
+# STOPFILE-NAME was not set explicitly.
+# PLUGIN was not set explicitly.
+# STATE was not set explicitly.
+
+STATE "*:*" ON
+
+# SYMBOL was not set explicitly.
+# ACTIVITY was not set explicitly.
+# KEEP-RAW-EVENTS was not set explicitly.
+KEEP-RAW-EVENTS OFF
+# COMPRESS-RAW-DATA was not set explicitly.
+COMPRESS-RAW-DATA ON
+# DETAILED-STATES was not set explicitly.
+DETAILED-STATES 0
+# DEMANGLE was not set explicitly.
+DEMANGLE OFF
+# ENTER-USERCODE was not set explicitly.
+ENTER-USERCODE ON
+# COUNTER was not set explicitly.
+# INTERNAL-MPI was not set explicitly.
+INTERNAL-MPI ON
+# PCTRACE was set explicitly.
+PCTRACE ON
+# PCTRACE-FAST was not set explicitly.
+PCTRACE-FAST ON
+# PCTRACE-CACHE was not set explicitly.
+PCTRACE-CACHE ON
+# IGNORE-CODE was not set explicitly.
+# PROCESS was not set explicitly.
+# CLUSTER was not set explicitly.
+# TIME-WINDOWS was not set explicitly.
+# MEM-BLOCKSIZE was not set explicitly.
+MEM-BLOCKSIZE 65536
+# MEM-MAXBLOCKS was not set explicitly.
+MEM-MAXBLOCKS 4096
+# MEM-MINBLOCKS was not set explicitly.
+MEM-MINBLOCKS 0
+# MEM-INFO was not set explicitly.
+MEM-INFO 524288000
+# AUTOFLUSH was not set explicitly.
+AUTOFLUSH ON
+# MEM-FLUSHBLOCKS was not set explicitly.
+MEM-FLUSHBLOCKS 1024
+# MEM-OVERWRITE was not set explicitly.
+MEM-OVERWRITE OFF
+# FLUSH-PREFIX was not set explicitly.
+FLUSH-PREFIX "/tmp"
+# FLUSH-PID was not set explicitly.
+FLUSH-PID ON
+# ENVIRONMENT was not set explicitly.
+ENVIRONMENT ON
+# STATISTICS was not set explicitly.
+STATISTICS 0
+# STF-USE-HW-STRUCTURE was not set explicitly.
+STF-USE-HW-STRUCTURE ON
+# STF-PROCS-PER-FILE was not set explicitly.
+STF-PROCS-PER-FILE 16
+# STF-CHUNKSIZE was not set explicitly.
+STF-CHUNKSIZE 65536
+# GROUP was not set explicitly.
+# OS-COUNTER-DELAY was not set explicitly.
+OS-COUNTER-DELAY 1.000000
+# TIMER was not set explicitly.
+TIMER "gettimeofday"
+# EVENT-BITS was not set explicitly.
+EVENT-BITS 13
+# TIMER-SHIFT was not set explicitly.
+TIMER-SHIFT 0
+# TIMER-DUMP was not set explicitly.
+TIMER-DUMP OFF
+# TIMER-SKIP was not set explicitly.
+TIMER-SKIP 0
+# SYNC-MAX-DURATION was not set explicitly.
+SYNC-MAX-DURATION 60.000000
+# SYNC-MAX-MESSAGES was not set explicitly.
+SYNC-MAX-MESSAGES 100
+# SYNC-SKEW was not set explicitly.
+SYNC-SKEW 0
+# SYNCED-CLUSTER was not set explicitly.
+SYNCED-CLUSTER OFF
+# SYNCED-HOST was not set explicitly.
+SYNCED-HOST ON
+# SYNCED-RUNTIME was not set explicitly.
+SYNCED-RUNTIME OFF
+# NMCMD was not set explicitly.
+NMCMD "nm -P"
+# UNIFY-SYMBOLS was not set explicitly.
+UNIFY-SYMBOLS ON
+# UNIFY-SCLS was not set explicitly.
+UNIFY-SCLS ON
+# UNIFY-GROUPS was not set explicitly.
+UNIFY-GROUPS ON
+# UNIFY-COUNTERS was not set explicitly.
+UNIFY-COUNTERS ON
+# INFO NUMPROCS was not set explicitly.
+INFO NUMPROCS 4
+# INFO CLUSTERDEF was not set explicitly.
+INFO CLUSTERDEF "yangyang-XPS-8900" 0:6442 1:6443 2:6444 3:6445
+INFO PROCESS 0 "yangyang-XPS-8900" "127.0.1.1" 6442
+INFO PROCESS 1 "yangyang-XPS-8900" "127.0.1.1" 6443
+INFO PROCESS 2 "yangyang-XPS-8900" "127.0.1.1" 6444
+INFO PROCESS 3 "yangyang-XPS-8900" "127.0.1.1" 6445
+# STF-ACT-TIMELINE was not set explicitly.
+STF-ACT-TIMELINE 640
+# SYMBOL-HASHSIZE was not set explicitly.
+SYMBOL-HASHSIZE 1031
+# ACTIVITY-HASHSIZE was not set explicitly.
+ACTIVITY-HASHSIZE 13
+# CLASS-HASHSIZE was not set explicitly.
+CLASS-HASHSIZE 13
+# SCL-HASHSIZE was not set explicitly.
+SCL-HASHSIZE 509
+# FILEHANDLE-HASHSIZE was not set explicitly.
+FILEHANDLE-HASHSIZE 13
+# COUNTER-HASHSIZE was not set explicitly.
+COUNTER-HASHSIZE 13
+# GROUP-HASHSIZE was not set explicitly.
+GROUP-HASHSIZE 13
+# HASHBUFFER-SIZE was not set explicitly.
+HASHBUFFER-SIZE 1024
+# MATCH-HASHSIZE was not set explicitly.
+MATCH-HASHSIZE 251
+# FUNCTRACE-HASHSIZE was not set explicitly.
+FUNCTRACE-HASHSIZE 509
+INFO TIMING "1":7.490000e-04
+INFO TIMING "2":1.107000e-03
+INFO TIMING "3":8.420000e-04
+INFO TIMING "0":1.146000e-03
+# TIMING <process ()>:<runtime (seconds)>

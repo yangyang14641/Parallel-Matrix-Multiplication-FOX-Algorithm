@@ -38,7 +38,7 @@
 
 
 // define problem scale, matrix row/col size 
-#define PROBLEM_SCALE 4096
+#define PROBLEM_SCALE 2048
 
 // define whether or not Print Matices in the Command Line
 #define PRINT_A 0
