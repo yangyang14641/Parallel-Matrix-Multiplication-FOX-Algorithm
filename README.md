@@ -35,15 +35,14 @@ for (i = 0; i < n; i++)
 ### Parallel Computing Modeling Design
 
 1. Basic Flow
-<img src="https:" alt="" />
-* Matrix <img src="https://tex.s2cms.ru/svg/%5Cmathbf%7BA%7D" alt="\mathbf{A}" />'s Dimension is <img src="https://tex.s2cms.ru/svg/M%20%5Ctimes%20K" alt="M \times K" />, and Matirx <img src="https://tex.s2cms.ru/svg/%5Cmathbf%7BB%7D" alt="\mathbf{B}" />'s Dimension is a <img src="https://tex.s2cms.ru/svg/K%20%5Ctimes%20N" alt="K \times N" />.
-* Compute Matrix <img src="https://tex.s2cms.ru/svg/%5Cmathbf%7BC%7D%20%3D%20%5Cmathbf%7BA%7D%5Cmathbf%7BB%7D" alt="\mathbf{C} = \mathbf{A}\mathbf{B}" /> in parallel.
-* Let <img src="https://tex.s2cms.ru/svg/p%3Dnum(processors)" alt="p=num(processors)" /> is the number of processors, and <img src="https://tex.s2cms.ru/svg/q%3D%5Csqrt%7Bp%7D" alt="q=\sqrt{p}" />  be an integer such that it devides <img src="https://tex.s2cms.ru/svg/M" alt="M" /> and <img src="https://tex.s2cms.ru/svg/N" alt="N" />.
-* Create a Cartesian topology with process mesh <img src="https://tex.s2cms.ru/svg/P_%7Bij%7D" alt="P_{ij}" />, and <img src="https://tex.s2cms.ru/svg/i%3D0..q-1" alt="i=0..q-1" />, <img src="https://tex.s2cms.ru/svg/j%3D0..q-1" alt="j=0..q-1" />.
-* Denote <img src="https://tex.s2cms.ru/svg/%5Chat%7BM%7D%20%3D%20%5Cfrac%7BM%7D%7Bq%7D" alt="\hat{M} = \frac{M}{q}" />, <img src="https://tex.s2cms.ru/svg/%5Chat%7BK%7D%3D%5Cfrac%7BK%7D%7Bq%7D" alt="\hat{K}=\frac{K}{q}" />, <img src="https://tex.s2cms.ru/svg/%5Chat%7BN%7D%3D%5Cfrac%7BN%7D%7Bq%7D" alt="\hat{N}=\frac{N}{q}" />.
-* Distribute <img src="https://tex.s2cms.ru/svg/%5Cmathbf%7BA%7D" alt="\mathbf{A}" /> and <img src="https://tex.s2cms.ru/svg/%5Cmathbf%7BB%7D" alt="\mathbf{B}" /> by blocks on p processess such that <img src="https://tex.s2cms.ru/svg/A_%7Bij%7D" alt="A_{ij}" /> is <img src="https://tex.s2cms.ru/svg/%5Chat%7BM%7D%20%5Ctimes%20%5Chat%7BK%7D" alt="\hat{M} \times \hat{K}" /> block and <img src="https://tex.s2cms.ru/svg/B_%7Bij%7D" alt="B_{ij}" />  is <img src="https://tex.s2cms.ru/svg/%5Chat%7BK%7D%20%5Ctimes%20%5Chat%7BN%7D" alt="\hat{K} \times \hat{N}" /> block, stored on process <img src="https://tex.s2cms.ru/svg/P_%7Bij%7D" alt="P_{ij}" />.
+* Matrix <img src="https://tex.s2cms.ru/svg/%5Cmathbf%7BA%7D" alt="\mathbf{A}">'s Dimension is <img src="https://tex.s2cms.ru/svg/M%20%5Ctimes%20K" alt="M \times K">, and Matirx <img src="https://tex.s2cms.ru/svg/%5Cmathbf%7BB%7D" alt="\mathbf{B}">'s Dimension is a <img src="https://tex.s2cms.ru/svg/K%20%5Ctimes%20N" alt="K \times N">.
+* Compute Matrix <img src="https://tex.s2cms.ru/svg/%5Cmathbf%7BC%7D%20%3D%20%5Cmathbf%7BA%7D%5Cmathbf%7BB%7D" alt="\mathbf{C} = \mathbf{A}\mathbf{B}"> in parallel.
+* Let <img src="https://tex.s2cms.ru/svg/p%3Dnum(processors)" alt="p=num(processors)"> is the number of processors, and <img src="https://tex.s2cms.ru/svg/q%3D%5Csqrt%7Bp%7D" alt="q=\sqrt{p}"> be an integer such that it devides <img src="https://tex.s2cms.ru/svg/M" alt="M"> and <img src="https://tex.s2cms.ru/svg/N" alt="N">.
+* Create a Cartesian topology with process mesh <img src="https://tex.s2cms.ru/svg/P_%7Bij%7D" alt="P_{ij}">, and <img src="https://tex.s2cms.ru/svg/i%3D0..q-1" alt="i=0..q-1">, <img src="https://tex.s2cms.ru/svg/j%3D0..q-1" alt="j=0..q-1">.
+* Denote <img src="https://tex.s2cms.ru/svg/%5Chat%7BM%7D%20%3D%20%5Cfrac%7BM%7D%7Bq%7D" alt="\hat{M} = \frac{M}{q}">, <img src="https://tex.s2cms.ru/svg/%5Chat%7BK%7D%3D%5Cfrac%7BK%7D%7Bq%7D" alt="\hat{K}=\frac{K}{q}">, <img src="https://tex.s2cms.ru/svg/%5Chat%7BN%7D%3D%5Cfrac%7BN%7D%7Bq%7D" alt="\hat{N}=\frac{N}{q}">.
+* Distribute <img src="https://tex.s2cms.ru/svg/%5Cmathbf%7BA%7D" alt="\mathbf{A}"> and <img src="https://tex.s2cms.ru/svg/%5Cmathbf%7BB%7D" alt="\mathbf{B}"> by blocks on p processess such that <img src="https://tex.s2cms.ru/svg/A_%7Bij%7D" alt="A_{ij}"> is <img src="https://tex.s2cms.ru/svg/%5Chat%7BM%7D%20%5Ctimes%20%5Chat%7BK%7D" alt="\hat{M} \times \hat{K}"> block and <img src="https://tex.s2cms.ru/svg/B_%7Bij%7D" alt="B_{ij}">  is <img src="https://tex.s2cms.ru/svg/%5Chat%7BK%7D%20%5Ctimes%20%5Chat%7BN%7D" alt="\hat{K} \times \hat{N}"> block, stored on process <img src="https://tex.s2cms.ru/svg/P_%7Bij%7D" alt="P_{ij}">.
 
-2. Details
+1. Details
 
 * Partitions of Matrices A, B and C. (Index syntax in Mathematical form: start from 1)
   * Matrix A
