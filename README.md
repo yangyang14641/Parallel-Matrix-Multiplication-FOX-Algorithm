@@ -1,6 +1,14 @@
 # **Parallel-Matrix-Multiplication-FOX-Algorithm**
 :coffee:Implement of Parallel Matrix Multiplication Methods Using FOX Algorithm on *<span style="color: red">Peking University's High-performance Computing System</span>*
 
+## Contents
+
+1. **Reference Documents**
+2. **Source Codes**
+3. **Code Test**
+4. **Report**
+5. **Imagines**
+
 ## **Brief Introduction to Parallel Matrix Multiplication FOX Algorithm**
 
 ### **Basic Concepts**
@@ -94,19 +102,20 @@ for (i = 0; i < n; i++)
    * *<span style="color: blue">Data parallelism: Local Matrix Multiplication operation in each processes for each supercomputing step.</span>*
   
 2. Parallel Modeling Algorithm Operations on each step:
-   * | Stage | Algorithm Operation | Algorithm Operation |
-     |-------|---------------------|---------------------|
-     |   0   |                     |                     |
-     |   1   |                     |                     |
-     |   2   |                     |                     |
-     |  ...  |                     |                     |
-     | q-2-i |                     |                     |
-     | q-1-i |                     |                     |
-     |  ...  |                     |                     |
-     |  ...  |                     |                     |
-     |  ...  |                     |                     |
-     |  q-1  |                     |                     |
+   * | Stage | Algorithm Operation |
+     |-------|---------------------|
+     |   0   | 1. Process P_{ij}  has A_{ij}, B_{ij}  but needs A_{ii}             (for each index i) <br/> 2. Process P_{ii}  broadcast A_{ii}  across process mesh row i <br/> 3. Process P_{ij}  computes C_{ij}=A_{ii}B_{ij}                    |
+     |   1   |                     |
+     |   2   |                     |
+     |  ...  |                     |
+     | q-2-i |                     |
+     | q-1-i |                     |
+     |  ...  |                     |
+     |  ...  |                     |
+     |  ...  |                     |
+     |  q-1  |                     |
 
    * *<span style="color: blue">Pipe parallelism: The (0 ~ q−1) Computing Steps for each process P_ij.</span>*
-
- <img src="https:">
+   * <center> <img src="Imagines/FOX.png" width="50%" height="50%" /> </center>
+  
+   <img src="https:">
