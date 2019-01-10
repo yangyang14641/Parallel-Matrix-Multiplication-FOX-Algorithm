@@ -71,5 +71,42 @@ for (i = 0; i < n; i++)
        | Data Partition | <img src="https://tex.s2cms.ru/svg/c_%7B11%7D%20%3D%20%0A%5Cleft%20%5B%0A%5Cleft%20(%0A%5Cbegin%7Bmatrix%7D%0A%C2%A0a_%7B11%7D%20%26%20a_%7B12%7D%20%5C%5C%20%0A%5Cend%7Bmatrix%7D%0A%5Cright%20)%0A%C2%A0%0A%5Cleft%20(%0A%5Cbegin%7Bmatrix%7D%0A%C2%A0b_%7B11%7D%20%5C%5C%20%0A%C2%A0b_%7B21%7D%0A%5Cend%7Bmatrix%7D%0A%5Cright%20)%0A%5Cright%20%5D%0A%C2%A0%0A%2B%0A%C2%A0%0A%5Cleft%20%5B%0A%5Cleft%20(%0A%5Cbegin%7Bmatrix%7D%0A%C2%A0a_%7B13%7D%20%26%20a_%7B14%7D%20%26%20a_%7B15%7D%20%5C%5C%20%0A%5Cend%7Bmatrix%7D%0A%5Cright%20)%0A%C2%A0%0A%5Cleft%20(%0A%5Cbegin%7Bmatrix%7D%0A%C2%A0b_%7B31%7D%20%5C%5C%20%0A%C2%A0b_%7B41%7D%20%5C%5C%0A%C2%A0b_%7B51%7D%0A%5Cend%7Bmatrix%7D%0A%5Cright%20)%0A%5Cright%5D"> |
        | Process Mesh | <img src="https://tex.s2cms.ru/svg/%5Cleft%20(%0A%5Cbegin%7Bmatrix%7D%0A%20P_%7B11%7D%20%26%20P_%7B12%7D%20%5C%5C%20%0A%20P_%7B21%7D%20%26%20P_%7B22%7D%20%0A%5Cend%7Bmatrix%7D%0A%5Cright%20)"> |
 
+  * Mathematical Modeling of Sub-Matirx Multiplication
+    * <img src="https://tex.s2cms.ru/svg/%5Cbegin%7Bequation%7D%0A%20%20%20%5Cbegin%7Baligned%7D%0A%20%20%20%20%20%20%5Cmathbf%7BC_%7Bij%7D%7D%20%26%3D%20%5Csum_%7Bk%3D0%7D%5E%7Bq-1%7D%20%5Cmathbf%7BA_%7Bik%7D%7D%5Cmathbf%7BB_%7Bkj%7D%7D%20%5C%5C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%26%3D%20%5Cmathbf%7BA_%7Bi0%7D%7D%5Cmathbf%7BB_%7B0j%7D%7D%20%2B%5Cmathbf%7B%20A_%7Bi1%7D%7D%5Cmathbf%7BB_%7B1j%7D%7D%20%2B%20%E2%80%A6%20%2B%20%5Cmathbf%7BA_%7Bii-1%7D%7D%5Cmathbf%7BB_%7Bi-1j%7D%7D%20%5Cnewline%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%26%2B%20%5Cmathbf%7BA_%7Bii%7D%7D%5Cmathbf%7BB_%7Bij%7D%7D%20%5C%5C%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%26%2B%20%5Cmathbf%7BA_%7Bi%2Ci%2B1%7D%7D%5Cmathbf%7BB_%7Bi%2B1j%7D%7D%20%2B%20%E2%80%A6%20%2B%20%5Cmathbf%7BA_%7Bi%2Cq-1%7D%7D%5Cmathbf%7BB_%7Bq-1%2Cj%7D%7D%0A%20%20%20%5Cend%7Baligned%7D%0A%5Cend%7Bequation%7D" />
 
-       <img src="https:">
+### **Parallel Algorithm Design on BSP**
+*<span style="color: violet">Parallelism type: Data parallelism with Pipeline parallelism</span>*
+
+1. Rewrite the formula of Sub-Matirx Multiplication as q−1 Supercomputing Steps
+   * | Stage | Mathematical Operation |
+     |-------|------------------------|
+     |   0   | <img src="https://tex.s2cms.ru/svg/%5Cmathbf%7BC_%7Bij%7D%7D%3D%5Cmathbf%7BA_%7Bii%7D%7D%5Cmathbf%7BB_%7Bij%7D%7D" alt="\mathbf{C_{ij}}=\mathbf{A_{ii}}\mathbf{B_{ij}}"> |
+     |   1   | <img src="https://tex.s2cms.ru/svg/%5Cmathbf%7BC_%7Bij%7D%7D%3D%5Cmathbf%7BC_%7Bij%7D%7D%2B%5Cmathbf%7BA_%7Bii%2B1%7D%7D%5Cmathbf%7BB_%7Bi%2B1j%7D%7D" alt="\mathbf{C_{ij}}=\mathbf{C_{ij}}+\mathbf{A_{ii+1}}\mathbf{B_{i+1j}}"> |
+     |   2   | <img src="https://tex.s2cms.ru/svg/%5Cmathbf%7BC_%7Bij%7D%7D%3D%5Cmathbf%7BC_%7Bij%7D%7D%2B%5Cmathbf%7BA_%7Bii%2B2%7D%7D%5Cmathbf%7BB_%7Bi%2B2j%7D%7D" alt="\mathbf{C_{ij}}=\mathbf{C_{ij}}+\mathbf{A_{ii+2}}\mathbf{B_{i+2j}}"> |
+     |  ...  |        ...         |
+     | q-2-i | <img src="https://tex.s2cms.ru/svg/%5Cmathbf%7BC_%7Bij%7D%7D%3D%5Cmathbf%7BC_%7Bij%7D%7D%2B%5Cmathbf%7BA_%7Biq-2%7D%7D%5Cmathbf%7BB_%7Bq-2j%7D%7D" alt="\mathbf{C_{ij}}=\mathbf{C_{ij}}+\mathbf{A_{iq-2}}\mathbf{B_{q-2j}}"> |
+     | q-1-i | <img src="https://tex.s2cms.ru/svg/%5Cmathbf%7BC_%7Bij%7D%7D%3D%5Cmathbf%7BC_%7Bij%7D%7D%2B%5Cmathbf%7BA_%7Biq-1%7D%7D%5Cmathbf%7BB_%7Bq-1j%7D%7D" alt="\mathbf{C_{ij}}=\mathbf{C_{ij}}+\mathbf{A_{iq-1}}\mathbf{B_{q-1j}}"> |
+     |  ...  | <img src="https://tex.s2cms.ru/svg/%5Cmathbf%7BC_%7Bij%7D%7D%3D%5Cmathbf%7BC_%7Bij%7D%7D%2B%5Cmathbf%7BA_%7Bi1%7D%7D%5Cmathbf%7BB_%7B1j%7D%7D" alt="\mathbf{C_{ij}}=\mathbf{C_{ij}}+\mathbf{A_{i1}}\mathbf{B_{1j}}"> |
+     |  ...  | <img src="https://tex.s2cms.ru/svg/%5Cmathbf%7BC_%7Bij%7D%7D%3D%5Cmathbf%7BC_%7Bij%7D%7D%2B%5Cmathbf%7BA_%7Bi2%7D%7D%5Cmathbf%7BB_%7B2j%7D%7D" alt="\mathbf{C_{ij}}=\mathbf{C_{ij}}+\mathbf{A_{i2}}\mathbf{B_{2j}}"> |
+     |  ...  |        ...         |
+     |  q-1  | <img src="https://tex.s2cms.ru/svg/%5Cmathbf%7BC_%7Bij%7D%7D%3D%5Cmathbf%7BC_%7Bij%7D%7D%2B%5Cmathbf%7BA_%7Bii-1%7D%7D%5Cmathbf%7BB_%7Bi-1j%7D%7D" alt="\mathbf{C_{ij}}=\mathbf{C_{ij}}+\mathbf{A_{ii-1}}\mathbf{B_{i-1j}}"> |
+
+   * *<span style="color: blue">Data parallelism: Local Matrix Multiplication operation in each processes for each supercomputing step.</span>*
+  
+2. Parallel Modeling Algorithm Operations on each step:
+   * | Stage | Algorithm Operation | Algorithm Operation |
+     |-------|---------------------|---------------------|
+     |   0   |                     |                     |
+     |   1   |                     |                     |
+     |   2   |                     |                     |
+     |  ...  |                     |                     |
+     | q-2-i |                     |                     |
+     | q-1-i |                     |                     |
+     |  ...  |                     |                     |
+     |  ...  |                     |                     |
+     |  ...  |                     |                     |
+     |  q-1  |                     |                     |
+
+   * *<span style="color: blue">Pipe parallelism: The (0 ~ q−1) Computing Steps for each process P_ij.</span>*
+
+ <img src="https:">
