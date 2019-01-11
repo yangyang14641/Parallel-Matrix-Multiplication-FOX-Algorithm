@@ -142,3 +142,22 @@ for (i = 0; i < n; i++)
 
 3. **Computing in total**
   * <img src="https://tex.s2cms.ru/svg/%5Cbegin%7Balign*%7D%0AComput%20%26%3D%20%20%5Cleft%5B%20%5Cleft(%20%5Cfrac%7BM%7D%7Bq%7D%20%5Ctimes%20%5Cfrac%7BK%7D%7Bq%7D%20%5Ctimes%20%5Cfrac%7BN%7D%7Bq%7D%20%5Cright)%20%5Ctimes%20%5Cleft(%20q%20%5Ctimes%20q%5Cright)%20%5Cright%5D%20%5Ctimes%20q%20%5C%5C%0A%26%3D%20M%20%5Ctimes%20K%20%5Ctimes%20N%0A%5Cend%7Balign*%7D">
+
+4. **FOX Kernel in the Parallel Program**
+
+   * ``` c
+         for (stage = 0; stage < grid->q; stage++) {
+             bcast_root = (grid->my_row + stage) % grid->q;
+             if (bcast_root == grid->my_col) {
+               MPI_Bcast(local_A, 1, local_matrix_mpi_t,
+                         bcast_root, grid->row_comm);
+               Local_matrix_multiply(local_A, local_B,local_C);
+             } else {
+               MPI_Bcast(temp_A, 1, local_matrix_mpi_t,
+                         bcast_root, grid->row_comm);
+               Local_matrix_multiply(temp_A, local_B,local_C);
+             }
+             MPI_Sendrecv_replace(local_B, 1, local_matrix_mpi_t,
+                                  dest, 0, source, 0, grid->col_comm, &status);
+          }
+     ```
