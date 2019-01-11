@@ -115,7 +115,7 @@ for (i = 0; i < n; i++)
      |  ...  |         ...         |
      |  q-1  | <img src="https://tex.s2cms.ru/svg/%5Cmathbf%7BC_%7Bij%7D%3DC_%7Bij%7D%2BA_%7Bii-1%7DB_%7Bi-1j%7D%7D" alt="\mathbf{C_{ij}=C_{ij}+A_{ii-1}B_{i-1j}}"> |
 
-   * *<span style="color: blue">Pipe parallelism: The (0 ~ q−1) Computing Steps for each process P_ij.</span>*
+   * *<span style="color: blue">Pipe parallelism: The <img src="https://tex.s2cms.ru/svg/(0%20%5Cto%20q-1)" alt="(0 \to q-1)"> Computing Steps for each process <img src="https://tex.s2cms.ru/svg/P_%7Bij%7D" alt="P_{ij}">.</span>*
    * <center> <img src="Imagines/FOX.png" width="50%" height="50%" /> </center>
 
 ### **Algorithm Analysis**
@@ -138,7 +138,7 @@ for (i = 0; i < n; i++)
      |  q-1  | <img src="https://tex.s2cms.ru/svg/%5Cmathbf%7BC_%7Bij%7D%3DC_%7Bij%7D%2BA_%7Bii-1%7DB_%7Bi-1j%7D%7D" alt="\mathbf{C_{ij}=C_{ij}+A_{ii-1}B_{i-1j}}"> |  |
 
 2. **Communication in total**
-  * <img src="https:">
+  * <img src="https://tex.s2cms.ru/svg/%5Cbegin%7Balign*%7D%0AComm%20%26%3D%20%5Cleft%5B%20(q-1)q%20%5Ctimes%20%5Cfrac%7BM%20%5Ctimes%20K%7D%7Bq%5E%7B2%7D%7D%20%5Ctimes%20q%20%5Cright%5D%20%5C%5C%0A%26%2B%20%5Cleft%5B%20(q%20%5Ctimes%20q)%20%5Ctimes%20%5Cfrac%7BK%20%5Ctimes%20N%7D%7Bq%5E2%7D%20%5Ctimes(q-1)%20%5Cright%5D%20%5C%5C%0A%26%3D%20%5Cleft(%20M%20%5Ctimes%20K%20%2B%20K%20%5Ctimes%20N%20%5Cright)%20%5Ctimes%20(q-1)%20%0A%5Cend%7Balign*%7D">
 
 3. **Computing in total**
-  * <img src="https:">
+  * <img src="https://tex.s2cms.ru/svg/%5Cbegin%7Balign*%7D%0AComput%20%26%3D%20%20%5Cleft%5B%20%5Cleft(%20%5Cfrac%7BM%7D%7Bq%7D%20%5Ctimes%20%5Cfrac%7BK%7D%7Bq%7D%20%5Ctimes%20%5Cfrac%7BN%7D%7Bq%7D%20%5Cright)%20%5Ctimes%20%5Cleft(%20q%20%5Ctimes%20q%5Cright)%20%5Cright%5D%20%5Ctimes%20q%20%5C%5C%0A%26%3D%20M%20%5Ctimes%20K%20%5Ctimes%20N%0A%5Cend%7Balign*%7D">
