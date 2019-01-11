@@ -145,7 +145,15 @@ for (i = 0; i < n; i++)
 
 4. **FOX Kernel in the Parallel Program**
 
-   * ``` c
+   * ``` c 
+         n_bar = n/grid->q;
+         Set_to_zero(local_C);
+
+         source = (grid->my_row + 1) % grid->q;
+         dest = (grid->my_row + grid->q - 1) % grid->q;
+
+         temp_A = Local_matrix_allocate(n_bar);
+
          for (stage = 0; stage < grid->q; stage++) {
              bcast_root = (grid->my_row + stage) % grid->q;
              if (bcast_root == grid->my_col) {
