@@ -153,8 +153,6 @@ for (i = 0; i < n; i++)
 
 ### **Algorithm Analysis**
 
-   <img src="https:">
-
 1. **Algorithm Analysis on each Supercomputing Step**
 
    * | Stage | Algorithm Operation |Computing and  Communication Analysis|
