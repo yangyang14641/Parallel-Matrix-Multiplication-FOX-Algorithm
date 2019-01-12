@@ -204,8 +204,8 @@ for (i = 0; i < n; i++)
      ```
 
 ## **Analysis**
-  * <center> <img src="Imagines/FOX Stage Whole.JPG" width="50%" height="50%" /> </center>
-  * <center> <img src="Imagines/FOX Stage Loading Balance.png" width="50%" height="50%" /> </center>
+  * Intel® Trace Analyzer Statistics results While FOX Kernel Executing <center> <img src="Imagines/FOX Stage Whole.JPG" width="50%" height="50%" /> </center>
+  * Intel® Trace Analyzer's Load Balance Analysis While FOX Kernel Executing <center> <img src="Imagines/FOX Stage Loading Balance.png" width="50%" height="50%" /> </center>
 
 ## **Warranty** 
 **Maybe, there are many mistakes in the both documents and Codes, because of the limitation of our knowledge and strength. As a result: THESE DOCUMENTS AND CODES ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND.
