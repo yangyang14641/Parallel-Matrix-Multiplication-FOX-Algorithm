@@ -1,13 +1,46 @@
 # **Parallel-Matrix-Multiplication-FOX-Algorithm**
 :coffee:Implement of Parallel Matrix Multiplication Methods Using FOX Algorithm on *<span style="color: red">Peking University's High-performance Computing System</span>*
 
+<center>
+<img src="http://logok.org/wp-content/uploads/2014/04/Peking-University-logo.png" width="50%" height="50%" />
+</center>
+ 
+ Yes We Code
+<center>
+<img src="https://octodex.github.com/images/baracktocat.jpg" width="50%" height="50%" />
+</center>
+
 ## Contents
 
 1. **Reference Documents**
+   * Thomas Anastasio, Example of Matrix Multiplication by Fox Method
+   * Jaeyoung Choi, A New Parallel Matrix Multiplication Algorithm on Distributed-Memory Concurrent Computers
+   * Ned Nedialkov, Communicators and Topologies: Matrix Multiplication Example
 2. **Source Codes**
-3. **Code Test**
-4. **Report**
+   * C language
+   * Fortran
+   * [Source Codes' Contents](http://github.com)
+3. **Code Tests**
+   * Dell XPS8900 
+     * Code Test on Dell XPS8900 Workstation (Intel® Core™ i7-6700K Processor)
+     * Analyzing MPI Performance Using Intel Trace Analyzer
+   * PKU-HPC 
+     * Lenovo X8800 Supercomputer Platform
+     * Code Performance Tests on X8800 Supercomputer Platform's CPU Node (Intel® Xeon® Processor E5-2697A v4)
+     * Code Performance Tests on X8800 Supercomputer Platform's MIC Node (Intel® Xeon Phi™ Processor 7250)
+   * [Code Tests' Contents](http://github.com)
+4. **Reports**
+   * 1801111621_洪瑶_并行程序报告.pdf
+   * 并行程序报告.docx
+   * 洪瑶_1801111621并行程序设计报告.pptx
+   * Parallel FOX Algorithm Project Report.pptx (will be added in the future)
+   * Parallel FOX Algorithm Project Report Paper.tex (will be added in the future)
+   * Parallel FOX Algorithm Project Report Paper.pdf (will be added in the future)
+   * [Reports' Contents](https://github.com/yangyang14641/Parallel-Matrix-Multiplication-FOX-Algorithm/blob/master/Report/CONTENTS.md)
 5. **Imagines**
+   * FOX.png
+   * FOX Stage Whole.JPG
+   * FOX Stage Loading Balance.png
 
 ## **Brief Introduction to Parallel Matrix Multiplication FOX Algorithm**
 
@@ -143,7 +176,7 @@ for (i = 0; i < n; i++)
 3. **Computing in total**
   * <img src="https://tex.s2cms.ru/svg/%5Cbegin%7Balign*%7D%0AComput%20%26%3D%20%20%5Cleft%5B%20%5Cleft(%20%5Cfrac%7BM%7D%7Bq%7D%20%5Ctimes%20%5Cfrac%7BK%7D%7Bq%7D%20%5Ctimes%20%5Cfrac%7BN%7D%7Bq%7D%20%5Cright)%20%5Ctimes%20%5Cleft(%20q%20%5Ctimes%20q%5Cright)%20%5Cright%5D%20%5Ctimes%20q%20%5C%5C%0A%26%3D%20M%20%5Ctimes%20K%20%5Ctimes%20N%0A%5Cend%7Balign*%7D">
 
-4. **FOX Kernel in the Parallel Program**
+### **FOX Kernel in the Parallel MPI-C Program**
 
    * ``` c 
          n_bar = n/grid->q;
@@ -169,3 +202,14 @@ for (i = 0; i < n; i++)
                                   dest, 0, source, 0, grid->col_comm, &status);
           }
      ```
+
+## **Analysis**
+  * <center> <img src="Imagines/FOX Stage Whole.JPG" width="50%" height="50%" /> </center>
+  * <center> <img src="Imagines/FOX Stage Loading Balance.png" width="50%" height="50%" /> </center>
+
+## **Warranty** 
+**Maybe, there are many mistakes in the both documents and Codes, because of the limitation of our knowledge and strength. As a result: THESE DOCUMENTS AND CODES ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND.
+I MAKE NO WARRANTIES, EXPRESS OR IMPLIED, THAT THEY ARE FREE OF ERROR.**
+
+## **Copyright**
+**You can use and copy these works for any academic purpose, Except just copy to finish your homework or republish these works without proper declare their original author.**
